@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.jimenez.fourthclassnavigation.R
 import com.jimenez.fourthclassnavigation.databinding.FragmentProfileBinding
 
 
@@ -31,7 +32,7 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.nameUser
+        val textView = binding.nameUser
         profileViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
