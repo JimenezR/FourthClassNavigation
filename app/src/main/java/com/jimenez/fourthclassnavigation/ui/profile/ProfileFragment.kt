@@ -1,5 +1,6 @@
 package com.jimenez.fourthclassnavigation.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,9 +34,18 @@ class ProfileFragment : Fragment() {
         val root: View = binding.root
 
         val textView = binding.nameUser
-        profileViewModel.text.observe(viewLifecycleOwner, Observer {
+        profileViewModel.text.observe(viewLifecycleOwner, {
             textView.text = it
         })
+
+        val button = binding.intentButton
+        button.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/plain"
+            intent.putExtra(Intent.EXTRA_TEXT,"Saludos desde nuestra app Saludos desde nuestra app Saludos desde nuestra app Saludos desde nuestra app Saludos desde nuestra app")
+            startActivity(intent)
+        }
+
         return root
     }
 
